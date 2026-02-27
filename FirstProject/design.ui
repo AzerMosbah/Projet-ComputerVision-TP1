@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1300</width>
+    <height>900</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>TP1 - Traitement d'Images Numériques</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="mainLayout">
+
+    <!-- ===== SECTION 1 : ESPACE DE COULEURS RVB ===== -->
+    <item>
+     <widget class="QGroupBox" name="groupBox_RGB">
+      <property name="title">
+       <string>Espace de couleurs RVB</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_RGB">
+
+       <!-- Ligne 0 : Titres des colonnes -->
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_browse">
+         <property name="text"><string></string></property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLabel" name="label_title_orig">
+         <property name="text"><string>Image Originale</string></property>
+         <property name="alignment"><set>Qt::AlignCenter</set></property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QLabel" name="label_title_red">
+         <property name="text"><string>Composante Rouge</string></property>
+         <property name="alignment"><set>Qt::AlignCenter</set></property>
+        </widget>
+       </item>
+       <item row="0" column="3">
+        <widget class="QLabel" name="label_title_green">
+         <property name="text"><string>Composante Vert</string></property>
+         <property name="alignment"><set>Qt::AlignCenter</set></property>
+        </widget>
+       </item>
+       <item row="0" column="4">
+        <widget class="QLabel" name="label_title_blue">
+         <property name="text"><string>Composante Bleue</string></property>
+         <property name="alignment"><set>Qt::AlignCenter</set></property>
+        </widget>
+       </item>
+
+       <!-- Ligne 1 : Bouton Parcourir + Images -->
+       <item row="1" column="0">
+        <layout class="QVBoxLayout">
+         <item>
+          <widget class="QPushButton" name="Browse">
+           <property name="text"><string>Parcourir</string></property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_dim_title">
+           <property name="text"><string>Dimension</string></property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="Dimensions">
+           <property name="text"><string></string></property>
+           <property name="alignment"><set>Qt::AlignLeft|Qt::AlignTop</set></property>
+           <property name="minimumSize">
+            <size><width>120</width><height>60</height></size>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLabel" name="OriginalImg">
+         <property name="text"><string></string></property>
+         <property name="alignment"><set>Qt::AlignCenter</set></property>
+         <property name="minimumSize">
+          <size><width>220</width><height>200</height></size>
+         </property>
+         <property name="styleSheet">
+          <string>background-color: #d0d0d0; border: 1px solid gray;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QLabel" name="RedChannel">
+         <property name="text"><string></string></property>
+         <property name="alignment"><set>Qt::AlignCenter</set></property>
+         <property name="minimumSize">
+          <size><width>220</width><height>200</height></size>
+         </property>
+         <property name="styleSheet">
+          <string>background-color: #d0d0d0; border: 1px solid gray;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="QLabel" name="GreenChannel">
+         <property name="text"><string></string></property>
+         <property name="alignment"><set>Qt::AlignCenter</set></property>
+         <property name="minimumSize">
+          <size><width>220</width><height>200</height></size>
+         </property>
+         <property name="styleSheet">
+          <string>background-color: #d0d0d0; border: 1px solid gray;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="4">
+        <widget class="QLabel" name="BlueChannel">
+         <property name="text"><string></string></property>
+         <property name="alignment"><set>Qt::AlignCenter</set></property>
+         <property name="minimumSize">
+          <size><width>220</width><height>200</height></size>
+         </property>
+         <property name="styleSheet">
+          <string>background-color: #d0d0d0; border: 1px solid gray;</string>
+         </property>
+        </widget>
+       </item>
+
+       <!-- Ligne 2 : Boutons canaux -->
+       <item row="2" column="1">
+        <widget class="QPushButton" name="DisplayColorHist">
+         <property name="text"><string>Afficher Histogramme</string></property>
+        </widget>
+       </item>
+       <item row="2" column="2">
+        <widget class="QPushButton" name="DisplayRedChan">
+         <property name="text"><string>Afficher le plan R</string></property>
+        </widget>
+       </item>
+       <item row="2" column="3">
+        <widget class="QPushButton" name="DisplayGreenChan">
+         <property name="text"><string>Afficher le plan V</string></property>
+        </widget>
+       </item>
+       <item row="2" column="4">
+        <widget class="QPushButton" name="DisplayBlueChan">
+         <property name="text"><string>Afficher le plan B</string></property>
+        </widget>
+       </item>
+
+       <!-- Ligne 3 : Label Histogramme Couleur + widget -->
+       <item row="3" column="2" colspan="3">
+        <widget class="QLabel" name="label_colorhist_title">
+         <property name="text"><string>Histogramme Couleur</string></property>
+         <property name="alignment"><set>Qt::AlignCenter</set></property>
+        </widget>
+       </item>
+
+       <!-- Ligne 4 : Affichage histogramme couleur -->
+       <item row="4" column="2" colspan="3">
+        <widget class="QLabel" name="ColorHist">
+         <property name="text"><string></string></property>
+         <property name="alignment"><set>Qt::AlignCenter</set></property>
+         <property name="minimumSize">
+          <size><width>600</width><height>180</height></size>
+         </property>
+         <property name="styleSheet">
+          <string>background-color: #f0f0f0; border: 1px solid gray;</string>
+         </property>
+        </widget>
+       </item>
+
+      </layout>
+     </widget>
+    </item>
+
+    <!-- ===== SECTION 2 : IMAGE EN NIVEAUX DE GRIS ===== -->
+    <item>
+     <widget class="QGroupBox" name="groupBox_Gray">
+      <property name="title">
+       <string>Image en niveaux de gris</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_Gray">
+
+       <!-- Colonne 0 : Contraste, Brillance, Valider -->
+       <item row="0" column="0">
+        <layout class="QFormLayout">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_contrast">
+           <property name="text"><string>Contraste</string></property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="Contrast">
+           <property name="text"><string>1.0</string></property>
+           <property name="maximumSize">
+            <size><width>80</width><height>30</height></size>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_brightness">
+           <property name="text"><string>Brillance</string></property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="Brightness">
+           <property name="text"><string>0</string></property>
+           <property name="maximumSize">
+            <size><width>80</width><height>30</height></size>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="1" column="0">
+        <widget class="QPushButton" name="DisplayGrayImg">
+         <property name="text"><string>Valider</string></property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QPushButton" name="DisplayGrayHist">
+         <property name="text"><string>Afficher Histogramme</string></property>
+        </widget>
+       </item>
+
+       <!-- Colonne 1 : Titre + Image niveaux de gris -->
+       <item row="0" column="1">
+        <widget class="QLabel" name="label_grayimg_title">
+         <property name="text"><string>Image en niveaux de gris</string></property>
+         <property name="alignment"><set>Qt::AlignCenter</set></property>
+        </widget>
+       </item>
+       <item row="1" column="1" rowspan="2">
+        <widget class="QLabel" name="GrayImg">
+         <property name="text"><string></string></property>
+         <property name="alignment"><set>Qt::AlignCenter</set></property>
+         <property name="minimumSize">
+          <size><width>220</width><height>200</height></size>
+         </property>
+         <property name="styleSheet">
+          <string>background-color: #d0d0d0; border: 1px solid gray;</string>
+         </property>
+        </widget>
+       </item>
+
+       <!-- Colonne 2 : Titre + Histogramme gris -->
+       <item row="0" column="2">
+        <widget class="QLabel" name="label_grayhist_title">
+         <property name="text"><string>Histogramme de l'image en niveaux de gris</string></property>
+         <property name="alignment"><set>Qt::AlignCenter</set></property>
+        </widget>
+       </item>
+       <item row="1" column="2" rowspan="2">
+        <widget class="QLabel" name="GrayHist">
+         <property name="text"><string></string></property>
+         <property name="alignment"><set>Qt::AlignCenter</set></property>
+         <property name="minimumSize">
+          <size><width>500</width><height>200</height></size>
+         </property>
+         <property name="styleSheet">
+          <string>background-color: #f0f0f0; border: 1px solid gray;</string>
+         </property>
+        </widget>
+       </item>
+
+      </layout>
+     </widget>
+    </item>
+
+   </layout>
+  </widget>
+ </widget>
+</ui>
